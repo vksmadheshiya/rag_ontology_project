@@ -17,7 +17,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system that uses 
 4.  **Chunk & Embed with Metadata:**
     *   Chunk the cleaned text into smaller pieces suitable for retrieval.
     *   For each chunk, identify relevant concepts from the generated ontology and add them as metadata.
-    *   Embed text chunks using a sentence transformer model (`all-MiniLM-L6-v2`).
+    *   Embed text chunks using a sentence transformer model (`text-embedding-003-small`)  or (`all-MiniLM-L6-v2`).
     *   Store chunks, embeddings, and metadata in a persistent Chroma vector database.
 5.  **RAG Query:**
     *   User enters a query via Streamlit UI.
@@ -30,15 +30,15 @@ This project implements a Retrieval-Augmented Generation (RAG) system that uses 
 *   **Backend:** Python 3.9+
 *   **UI:** Streamlit
 *   **Core AI/Orchestration:** LangChain
-*   **LLMs:** OpenAI API (Configurable: `gpt-3.5-turbo-0125` used by default)
-*   **Embeddings:** `sentence-transformers` (`all-MiniLM-L6-v2`)
+*   **LLMs:** OpenAI API (Configurable: `GPT-4o-mini` used by default)
+*   **Embeddings:** OpenAI API (`text-embedding-003-small`) or `sentence-transformers` (`all-MiniLM-L6-v2`)
 *   **Vector DB:** ChromaDB (persistent local storage)
 *   **Ontology Storage:** JSON files (cached)
 *   **Dependencies:** See `requirements.txt`
 
 ## Setup
 
-1.  **Clone:** `git clone <your-repo-url>`
+1.  **Clone:** `git clone <https://github.com/vksmadheshiya/rag_ontology_project.git>`
 2.  **Navigate:** `cd rag_ontology_project`
 3.  **Create Virtual Environment:** `python -m venv venv`
 4.  **Activate Environment:**
@@ -72,11 +72,11 @@ This project implements a Retrieval-Augmented Generation (RAG) system that uses 
 
 *   **Conceptualization & Planning:** Used LLM (Claude 3 Opus in initial discussion) to refine the understanding of the problem statement, brainstorm architectural options, and outline the implementation steps based on the prompt.
 *   **Code Generation (Example Prompts & Refinement):**
-    *   Used code assistants (like GitHub Copilot or directly prompting models like GPT-4/Claude) for boilerplate code generation and specific function implementations.
-    *   *Example Prompt (Ontology Extraction Function):* "Write a Python function using LangChain and OpenAI's `gpt-3.5-turbo` to extract characters, places, and themes from a text chunk. The function should take the text chunk as input and return a dictionary. Use structured output prompting with Pydantic for reliability. Include basic error handling."
+    *   Used code assistants (like GitHub Copilot or directly prompting models like gpt-4o-mini/Claude) for boilerplate code generation and specific function implementations.
+    *   *Example Prompt (Ontology Extraction Function):* "Write a Python function using LangChain and OpenAI's `gpt-4o-mini` to extract characters, places, and themes from a text chunk. The function should take the text chunk as input and return a dictionary. Use structured output prompting with Pydantic for reliability. Include basic error handling."
     *   *Example Prompt (Streamlit Caching):* "Show how to use `st.cache_data` and `st.cache_resource` in Streamlit to cache ontology JSON data and a Chroma vector store object, respectively. Ensure the caching depends on a unique book identifier."
 *   **Refinement & Debugging:** Pasted code snippets and error messages into LLMs to get suggestions for fixes, improvements, or alternative approaches (e.g., improving regex, handling API errors, structuring LangChain chains).
-*   **Assistant Selection:** Primarily used models known for strong coding and instruction-following (GPT-4, Claude 3). Selected based on access and perceived quality for the specific task (e.g., GPT-4 often better for complex code generation, Claude better for explanation/brainstorming). Output was always reviewed, tested, and modified significantly. The generated code serves as a starting point or solution to a specific sub-problem, not a copy-paste final product.
+*   **Assistant Selection:** Primarily used models known for strong coding and instruction-following (GPT-4o-mini, Claude 3). Selected based on access and perceived quality for the specific task (e.g., GPT-4 often better for complex code generation, Claude better for explanation/brainstorming). Output was always reviewed, tested, and modified significantly. The generated code serves as a starting point or solution to a specific sub-problem, not a copy-paste final product.
 
 ## Future Improvements
 
