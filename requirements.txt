@@ -1,0 +1,14 @@
+streamlit
+langchain
+langchain-core
+langchain-community
+langchain-openai  # Or langchain-anthropic, etc. depending on your chosen LLM provider
+openai            # If using OpenAI
+python-dotenv
+sentence-transformers
+chromadb
+requests
+tiktoken          # Often needed by LangChain text splitters
+beautifulsoup4    # Useful for potential future web scraping/cleaning
+networkx          # Optional: If you want advanced ontology graph features later
+matplotlib        # Optional: For visualizing ontology with NetworkX
